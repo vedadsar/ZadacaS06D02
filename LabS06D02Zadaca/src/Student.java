@@ -3,13 +3,21 @@ public class Student {
 private String ime;
 private String prezime;
 private String email;
-
+/**
+ * Prazan konstruktor, u slucaju da je mjesto prazno.
+ */
 public Student(){
 	this.ime = "PRAZNO";
 	this.prezime="PRAZNO";
 	this.email="PRAZNO";
 }
 
+/**
+ * Konstruktor sa vrijednostima ime,prezime i email.
+ * @param ime: Ime studenta.
+ * @param prezime: Prezime Studenta
+ * @param email: Email studenta
+ */
 public Student(String ime, String prezime, String email){
 	this.ime = ime;
 	this.prezime=prezime;
@@ -17,7 +25,7 @@ public Student(String ime, String prezime, String email){
 }
 
 /**
- * @return the ime
+ * @return the ime: getter za ime
  */
 public String getIme() {
 	return ime;
@@ -57,7 +65,9 @@ public String getEmail() {
 public void setEmail(String email) {
 	this.email = email;
 }
-
+/**
+ * toString metoda, vraca String koji sam formatirao.
+ */
 public String toString(){
 	String out = "Ime studenta: " +ime +"\nPrezime Studenta: " +prezime +"\nEmail: " +email;
 	return out;
