@@ -1,3 +1,4 @@
+package student;
 
 public class Student {
 private String ime;

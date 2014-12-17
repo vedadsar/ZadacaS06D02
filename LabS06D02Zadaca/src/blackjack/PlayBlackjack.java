@@ -27,17 +27,23 @@ public class PlayBlackjack {
 		dealer.addCard(spil.getNext());
 		dealer.addCard(spil.getNext());
 
+		//Ukoliko je zbir igracevih karata manji od 10, igrac vuce novu kartu.
+		while(player.getSum()<10){   
+		player.addCard(spil.getNext());
+		}
+				
 		System.out.println("igrac ima " + player.getSum());
 		System.out.println("dealer ima " + dealer.getSum());
-   
+      
+		//provjeravamo da li je zbir karata 21, tj da li je korisnik dobio blackjack.
+		if(player.getSum()==21){
+			System.out.println("Cestitamo pobjedili ste!! BLACKJACK");
+		return;
+		}
+				
 		// Petlja da igrac vuce karte dokle zeli.
-		while (player.getSum() < 17 || krajIgre == false) {
-			
-			//Ukoliko je zbir igracevih karata manji od 10, igrac vuce novu kartu.
-			if(player.getSum()<10){   
-			player.addCard(spil.getNext());
-			System.out.println("Novo stanje je " + player.getSum());
-			}
+		while (player.getSum() < 21 || krajIgre == false) {
+						
 			
 			//Korisnik bira da li ce da unese novu kartu.
 			System.out.println("Unesite d ukoliko zelite povuci novu kartu");
@@ -53,7 +59,6 @@ public class PlayBlackjack {
 			}else{
 									
 			     player.addCard(spil.getNext());
-			     System.out.println("Novi zbir " +player.getSum());
 			     
 				// Kada nam je broj presao 21 i nemamo 'A' u ruci.
 				if (player.getSum() > 21 && player.getAcesNum() < 1) {
@@ -63,8 +68,10 @@ public class PlayBlackjack {
 				}
 				// Kada nam je broj presao 21 i imamo 'A' u ruci.
 				if (player.getSum() > 21 && player.getAcesNum() > 0) {
-					player.setSum(player.getSum());
-					player.setAcesNum(player.getAcesNum());
+					player.setSum();
+					player.setCounter();
+					player.setAcesNum();
+					
 									
 				}
 				//Kada smo izvukli blackjack
@@ -75,6 +82,8 @@ public class PlayBlackjack {
 					
 					
 				}
+				System.out.println("novi zbir" +player.getSum());
+
 			}
 		}
 		/*
@@ -88,17 +97,20 @@ public class PlayBlackjack {
 				// Ukoliko dealer predje 21.
 				if(dealer.getSum()>21){
 					System.out.println("Cestitamo, pobjedili ste !!!");
-					return;
+					krajIgre = true;
+					break;
 				}
 				// Kada  je dealerov broj presao 21 i nemamo 'A' u ruci.
 				if (dealer.getSum() > 21 && dealer.getAcesNum() < 1) {
 					System.out.println("Pobjedili  ste!");
 					krajIgre = true;
+					break;
 				}
 				// Kada  je dealerov broj presao 21 i imamo 'A' u ruci.
 				if (dealer.getSum() > 21 && dealer.getAcesNum() > 0) {
-					dealer.setSum(dealer.getSum());
-					dealer.setAcesNum(dealer.getAcesNum());
+					dealer.setSum();
+					dealer.setCounter();
+					dealer.setAcesNum();
 									
 				}
 			}
@@ -109,9 +121,7 @@ public class PlayBlackjack {
 		 * ko je pobjednik ili pobjednika nema.
 		 */
 		if(krajIgre == false){
-			System.out.println("Igrac ima " +player.getSum());
-			System.out.println("Dealer ima " +dealer.getSum());
-
+		
 			if(dealer.getSum()>player.getSum())
 				System.out.println("Pobjedio je dealer!");
 			if(dealer.getSum()<player.getSum())
@@ -120,5 +130,8 @@ public class PlayBlackjack {
 				System.out.println("Nerjeseno!");
 		}
 		
+		System.out.println();
+		System.out.println("Igrac ima " +player.getSum());
+		System.out.println("Dealer ima " +dealer.getSum());
 	}
 }

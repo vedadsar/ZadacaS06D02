@@ -3,6 +3,7 @@ public class Hand {
 private Card[] hand;
 private int acesNum;
 private int  counter;
+private int sum;
  
      /**
      * Konstruktor hand.
@@ -32,15 +33,20 @@ private int  counter;
 	 * Funkcija getSum, uzima vrijednosti karti iz niza i dodaje ih na sumu.
 	 */
 	public int getSum(){
-		int sum = 0;
+		
+		this.sum = 0;
 		for(int i=0;i<counter;i++){//Prolazimo kroz niz karata, i dodajemo vrijednosti.
 			sum += hand[i].getVrijednost();
 		}
+		
+		
 		return sum;
 	}
 	
-	public void setSum(int sum){
-		sum = sum-10;
+	
+	
+	public  void  setSum(){
+		this.sum = this.sum-10;
 	}
 	/**
 	 * @return the acesNum
@@ -49,8 +55,15 @@ private int  counter;
 	public int getAcesNum() {
 		return acesNum;
 	}
-
-	public void setAcesNum(int acesNum){
-		acesNum--;
+	
+		public void setAcesNum(){
+		this.acesNum--;
 	}
+		
+		public int getCounter() {
+			return counter;
+		}
+		public void setCounter() {
+			counter --;
+		}
 }

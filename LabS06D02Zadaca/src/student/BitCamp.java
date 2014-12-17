@@ -1,3 +1,4 @@
+package student;
 /**
  * Zadatak da napravimo klasu student koja ce sadrzavati informacije o studentu. 
  * Zatim sam u klasi BitCamp napravio izgled kako nasa ucionica BitCampa izgleda.

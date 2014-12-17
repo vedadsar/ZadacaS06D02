@@ -12,7 +12,7 @@ public class Deck {
         int counter = 0;
 		cards = new Card[52];
 		for (int i = 0; i < cards.length; i++)
-			cards[i] = new Card(i + 1);
+			cards[i] = new Card(i);
  		Shuffle();
 	}
 /**
