@@ -1,0 +1,5 @@
+2 Zadatka.
+
+1.Igra blackjack koja simulira igranje blackjacka. Naravno nije savrseno, jer igrac moze odigrati samo jednu ruku.
+
+2.Student zadatak koji ispisuje izgled nase ucionice, postavlja studente na mjesta na kojima sjede u bitcamp ucionici.
